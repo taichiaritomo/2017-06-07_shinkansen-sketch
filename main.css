@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+/*    background-image: linear-gradient(to bottom, #7892cc 0%, #ed8d59 80%, #fafb8b 100%);*/
+/*    background-image: linear-gradient(to bottom, #000000 0%, #0C1631 60%, #80408F 98%, #AE54AF 100%);*/
+    background-image: linear-gradient(to bottom, #000000 0%, #2A2753 100%);
+    font-family: sans-serif;
+    color: white;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+#type-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+}
+
