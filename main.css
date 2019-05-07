@@ -3,14 +3,15 @@ html {
 }
 
 body {
-    margin: 0;
+	margin: 0;
 /*    background-image: linear-gradient(to bottom, #7892cc 0%, #ed8d59 80%, #fafb8b 100%);*/
 /*    background-image: linear-gradient(to bottom, #000000 0%, #0C1631 60%, #80408F 98%, #AE54AF 100%);*/
-    background-image: linear-gradient(to bottom, #000000 0%, #2A2753 100%);
-    font-family: sans-serif;
-    color: white;
-    font-size: 12px;
-    overflow: hidden;
+	background-image: linear-gradient(to bottom, #000000 0%, #2A2753 100%);
+	font-family: sans-serif;
+	color: white;
+	font-size: 16px;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 #type-grid {
@@ -19,4 +20,15 @@ body {
     margin: auto;
     text-align: center;
 }
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 

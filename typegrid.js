@@ -83,8 +83,8 @@ var TypeGrid = {
     
     constants: {
         cell_size: {
-            width: 18,
-            height: 18
+            width: 24,
+            height: 24
         },
     },
     
@@ -197,12 +197,13 @@ var TypeGrid = {
         
         active: new Array(),
         
-        create: function(size) {
+				// x and y are numbers from 0 to 1, indicating the range in the width, height respectively
+        create: function(size, x, y) {
             var newStar = new Star();
             newStar.size = size;
             newStar.stage = 0;
-            newStar.center.x = Math.floor(Math.random()*TypeGrid.cells[0].length);
-            newStar.center.y = Math.floor(Math.random()*TypeGrid.cells.length);
+            newStar.center.x = Math.floor(x*TypeGrid.cells[0].length);
+            newStar.center.y = Math.floor(y*TypeGrid.cells.length);
             this.active.push(newStar);
         },
         
@@ -248,13 +249,13 @@ var TypeGrid = {
 
 TypeGrid.initialize();
 TypeGrid.sparkle.on();
-TypeGrid.write("✿          ", "flood");
+TypeGrid.write("✿         ", "flood");
 console.log(TypeGrid.cells);
 var temp = true;
 
 setInterval(function() {
     TypeGrid.stars.advance();
-}, 61);
+}, 100);
 //setInterval(function() {
 //    TypeGrid.stars.create(0);
 //}, 200);
@@ -281,5 +282,15 @@ setInterval(function() {
 //}, 1000);
 
 document.body.addEventListener("keydown", function(e) {
-    TypeGrid.stars.create(0);
+    TypeGrid.stars.create(0, Math.random(), Math.random());
+});
+
+var typegridElement = document.querySelector('#type-grid');
+typegridElement.addEventListener("mousedown", e => {
+		var rect = typegridElement.getBoundingClientRect(),
+				x = (e.clientX - rect.left) / typegridElement.offsetWidth,
+				y = (e.clientY - rect.top) /  typegridElement.offsetHeight;
+		if (x >= 0 && x < 1 && y >= 0 && y < 1) {
+				TypeGrid.stars.create(0, x, y);
+		}
 });
